@@ -121,10 +121,10 @@ Resultados versionados em [lighthouse/summary.md](lighthouse/summary.md) (median
 Projeto pronto para Vercel ([vercel.json](vercel.json), com fallback de SPA para acesso direto e refresh) e Netlify ([public/_redirects](public/_redirects)). Os mocks e o tempo real funcionam no ambiente publicado porque o MSW roda no navegador.
 
 ```bash
-npx vercel --prod   # ou importe o repositório no painel da Vercel (framework: Vite)
+npx vercel --prod
 ```
 
-> URL pública: _a preencher após o deploy._
+> URL pública: https://marketplace-nfts-omega.vercel.app/
 
 ## Estado da validação visual
 

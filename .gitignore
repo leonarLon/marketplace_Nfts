@@ -1,0 +1,13 @@
+node_modules
+dist
+*.local
+.env
+test-results
+# playwright-report/ é versionado: relatório HTML da última execução completa (entregável do desafio)
+blob-report
+playwright/.cache
+node_modules/.tmp
+.vercel
+
+# Saída do Playwright MCP (debug local)
+.playwright-mcp/

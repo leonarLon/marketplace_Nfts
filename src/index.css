@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+ * Tokens visuais da identidade Kurio. Valores extraídos dos frames do Figma
+ * (ver docs/DESIGN_TOKENS.md para a origem e o status de validação de cada token).
+ */
+:root {
+  --radius: 0.25rem;
+
+  --background: #140e0c;
+  --foreground: #f6eee7;
+  --surface: #221815;
+  --surface-2: #2b1f1a;
+  --band: #3a2412;
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: #1c1411;
+  --popover-foreground: var(--foreground);
+  --primary: #d38b4b;
+  --primary-hover: #e29a59;
+  --primary-foreground: #140e0c;
+  --secondary: #2b1f1a;
+  --secondary-foreground: var(--foreground);
+  --muted: #2b1f1a;
+  --muted-foreground: #c9a27e;
+  --accent: #2b1f1a;
+  --accent-foreground: var(--foreground);
+  --destructive: #ef7b52;
+  --destructive-foreground: #140e0c;
+  --success: #7fc29b;
+  --border: #4a3226;
+  --border-strong: #8a5a33;
+  --input: #4a3226;
+  --ring: #f0a866;
+}
+
+@theme inline {
+  --font-sans: 'Roboto Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-mono: 'Roboto Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-band: var(--band);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 8px);
+
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'zero' 1;
+    letter-spacing: 0.02em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .skeleton {
+    background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 40%, #3a2a22 50%, var(--surface-2) 60%, var(--surface) 100%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-[1200px] px-4 md:px-6 xl:px-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--surface-2);
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

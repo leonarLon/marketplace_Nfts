@@ -118,14 +118,8 @@ Resultados versionados em [lighthouse/summary.md](lighthouse/summary.md) (median
 
 ## Deploy
 
-Projeto pronto para Vercel ([vercel.json](vercel.json), com fallback de SPA para acesso direto e refresh) e Netlify ([public/_redirects](public/_redirects)). Os mocks e o tempo real funcionam no ambiente publicado porque o MSW roda no navegador.
+A aplicação está publicada na Vercel e usa os mocks no navegador. O fallback de SPA está configurado em [vercel.json](vercel.json), permitindo abrir e atualizar rotas diretamente.
 
-```bash
-npx vercel --prod
-```
+**Aplicação:** https://marketplace-nfts-omega.vercel.app/
 
-> URL pública: https://marketplace-nfts-omega.vercel.app/
-
-## Estado da validação visual
-
-O layout segue o arquivo do Figma ([cópia usada](https://www.figma.com/design/ZzIOPSObE4VyhFrj7irpS8/Frontend-Challenge--Copy-)). O plano Starter do Figma MCP atingiu o limite de chamadas no meio da inspeção. Por isso, as comparações foram feitas contra screenshots em `docs/figma/`: 13 frames exportados pelo MCP e o frame "Mobile / Início" capturado pelo embed público do arquivo. Alguns assets continuam provisórios. Detalhes e pendências: [ARCHITECTURE.md › Desvios do Figma](ARCHITECTURE.md#desvios-do-figma-e-pendências-de-validação-visual).
+Os arquivos de configuração para publicação estão em [vercel.json](vercel.json) (Vercel) e [public/_redirects](public/_redirects) (Netlify).
